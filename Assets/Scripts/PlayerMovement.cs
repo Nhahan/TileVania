@@ -6,6 +6,8 @@ using UnityEngine.InputSystem; // 넣어주자!
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
 
     Vector2 moveInput;
     Rigidbody2D rigidBody;
@@ -48,5 +50,10 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2 (Mathf.Sign(rigidBody.velocity.x), 1f);
             // Mathf.Sign()은 부호를 반환한다.
         }
+    }
+
+    void OnFire(InputValue value)
+    {
+        Instantiate(bullet, gun.position, transform.rotation); // (Object, where?, )
     }
 }
