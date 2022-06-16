@@ -56,4 +56,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Instantiate(bullet, gun.position, transform.rotation); // (Object, where?, )
     }
+
+    // FindObjectOfType<GameSession>().ProcessPlayerDeath();
 }
